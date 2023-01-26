@@ -7,6 +7,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['image.tmdb.org'],
+  },
   webpack: (config) => {
     config.resolve.fallback = { fs: false, module: false, path: false };
     return config;

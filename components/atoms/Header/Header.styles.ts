@@ -1,11 +1,13 @@
 import tw from 'twin.macro';
 
 export const Container = tw.div`
-  p-2
+  h-16
+  flex
+  items-center
+  text-white
 `;
 
-export const Title = tw.h2`
-  text-white
-  text-2xl
+export const Title = tw.h3`
   font-bold
+  pl-4
 `;
