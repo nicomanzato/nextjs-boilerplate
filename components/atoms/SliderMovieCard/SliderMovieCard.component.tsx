@@ -26,7 +26,7 @@ export const SliderMovieCard = ({ movie }: { movie: Movie }) => {
       <DetailsContainer>
         <Title>{movie.title}</Title>
         <GenreContainer>
-          {movie.genres.map((genre) => (
+          {movie.genre_ids.map((genre) => (
             <Genre key={genre.name}>{genre.name}</Genre>
           ))}
         </GenreContainer>

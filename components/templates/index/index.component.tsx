@@ -6,16 +6,16 @@ import { Container, Title } from './index.styles';
 import { MovieSearcher } from './MovieSearcher/MovieSearcher.component';
 
 interface Props {
-  nowPlayingMovies: Movie[];
+  popularMovies: Movie[];
 }
 
-const HomeTemplate = ({ nowPlayingMovies }: Props) => {
+const HomeTemplate = ({ popularMovies }: Props) => {
   return (
     <PageLayout>
       <Container>
         <MovieSearcher />
-        <Title>Now in theaters</Title>
-        <MovieSlider movies={nowPlayingMovies}></MovieSlider>
+        <Title>Popular Movies</Title>
+        <MovieSlider movies={popularMovies}></MovieSlider>
       </Container>
     </PageLayout>
   );
