@@ -1,12 +1,13 @@
 import HomeTemplate from 'components/templates/index/index.component';
 import type { NextPage } from 'next';
 
+import server from './config';
+
 // const apiKey = '318e887a4fa2d785cb570c253dc7cd26';
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    'https://api.themoviedb.org/3/movie/popular?api_key=318e887a4fa2d785cb570c253dc7cd26&language=en-US&page=1'
-  );
+  // console.log(global);
+  const res = await fetch(`${server}/api/hello`);
   const data = await res.json();
   return {
     props: { moviesData: data },

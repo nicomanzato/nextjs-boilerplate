@@ -16,6 +16,12 @@ const HomeTemplate = ({ popularMovies }: Props) => {
         <MovieSearcher />
         <Title>Popular Movies</Title>
         <MovieSlider movies={popularMovies}></MovieSlider>
+        {/* <Title>Popular Movies</Title> */}
+        {/* <MovieSlider movies={popularMovies}></MovieSlider>
+        <Title>Popular Movies</Title>
+        <MovieSlider movies={popularMovies}></MovieSlider>
+        <Title>Popular Movies</Title>
+        <MovieSlider movies={popularMovies}></MovieSlider> */}
       </Container>
     </PageLayout>
   );

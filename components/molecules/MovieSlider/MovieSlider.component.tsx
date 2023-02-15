@@ -37,8 +37,8 @@ export const MovieSlider = ({ movies = [] }: Props) => {
         }}
       >
         {movies.map((movie) => (
-          <SwiperSlide key={movie.id}>
-            <SliderMovieCard movie={movie} />
+          <SwiperSlide key={`${movie.id}-slider`}>
+            <SliderMovieCard key={movie.id} movie={movie} />
           </SwiperSlide>
         ))}
       </Swiper>

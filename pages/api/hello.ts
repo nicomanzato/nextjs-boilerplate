@@ -5,9 +5,14 @@ type Data = {
   name: string;
 };
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' });
+  const apiUrl = 'https://api.themoviedb.org/3/movie';
+  const data = await fetch(
+    `${apiUrl}/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
+  ).then((response) => response.json());
+
+  return res.status(200).json(data);
 }
