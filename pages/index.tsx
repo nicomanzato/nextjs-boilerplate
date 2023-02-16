@@ -7,15 +7,28 @@ import server from './config';
 
 export const getStaticProps = async () => {
   // console.log(global);
-  const res = await fetch(`${server}/api/hello`);
+  const res = await fetch(`${server}/api/popularData`);
   const data = await res.json();
+
+  const resGenre = await fetch(`${server}/api/genresData`);
+  const dataGenre = await resGenre.json();
+
+  const resAction = await fetch(`${server}/api/actionData`);
+  const dataAction = await resAction.json();
+
   return {
-    props: { moviesData: data },
+    props: { moviesData: data, genreData: dataGenre, actionData: dataAction },
   };
 };
 
-const Home: NextPage = ({ moviesData }) => {
-  return <HomeTemplate popularMovies={moviesData.results} />;
+const Home: NextPage = ({ moviesData, genreData, actionData }) => {
+  return (
+    <HomeTemplate
+      popularMovies={moviesData.results}
+      genreData={genreData}
+      actionMovies={actionData.results}
+    />
+  );
 };
 
 export default Home;
