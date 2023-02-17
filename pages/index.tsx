@@ -16,17 +16,43 @@ export const getStaticProps = async () => {
   const resAction = await fetch(`${server}/api/actionData`);
   const dataAction = await resAction.json();
 
+  const resAnimation = await fetch(`${server}/api/animationData`);
+  const dataAnimation = await resAnimation.json();
+
+  const resDocumentary = await fetch(`${server}/api/documentaryData`);
+  const dataDocumentary = await resDocumentary.json();
+
+  const resTrending = await fetch(`${server}/api/trendingData`);
+  const dataTrending = await resTrending.json();
+
   return {
-    props: { moviesData: data, genreData: dataGenre, actionData: dataAction },
+    props: {
+      moviesData: data,
+      genreData: dataGenre,
+      actionData: dataAction,
+      animationData: dataAnimation,
+      documentaryData: dataDocumentary,
+      trendingData: dataTrending,
+    },
   };
 };
 
-const Home: NextPage = ({ moviesData, genreData, actionData }) => {
+const Home: NextPage = ({
+  moviesData,
+  genreData,
+  actionData,
+  animationData,
+  documentaryData,
+  trendingData,
+}) => {
   return (
     <HomeTemplate
       popularMovies={moviesData.results}
       genreData={genreData}
       actionMovies={actionData.results}
+      animationMovies={animationData.results}
+      documentaryMovies={documentaryData.results}
+      trendingMovies={trendingData.results}
     />
   );
 };

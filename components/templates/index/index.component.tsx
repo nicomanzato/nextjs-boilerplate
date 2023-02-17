@@ -10,9 +10,17 @@ interface Props {
   popularMovies: Movie[];
   genreData: MovieGenre;
   actionMovies: Movie[];
+  animationMovies: Movie[];
 }
 
-const HomeTemplate = ({ popularMovies, genreData, actionMovies }: Props) => {
+const HomeTemplate = ({
+  popularMovies,
+  genreData,
+  actionMovies,
+  animationMovies,
+  documentaryMovies,
+  trendingMovies,
+}: Props) => {
   return (
     <PageLayout>
       <Container>
@@ -21,9 +29,15 @@ const HomeTemplate = ({ popularMovies, genreData, actionMovies }: Props) => {
         <MovieSlider movies={popularMovies} genres={genreData}></MovieSlider>
         <Title>Popular Action Movies</Title>
         <MovieSlider movies={actionMovies} genres={genreData}></MovieSlider>
-        {/* 
-        <Title>Popular Movies</Title>
-        <MovieSlider movies={popularMovies}></MovieSlider> */}
+        <Title>Animated Movies</Title>
+        <MovieSlider movies={animationMovies} genres={genreData}></MovieSlider>
+        <Title>Documentary Movies</Title>
+        <MovieSlider
+          movies={documentaryMovies}
+          genres={genreData}
+        ></MovieSlider>
+        <Title>Trending Movies</Title>
+        <MovieSlider movies={trendingMovies} genres={genreData}></MovieSlider>
       </Container>
     </PageLayout>
   );
